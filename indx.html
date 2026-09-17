@@ -1,0 +1,2325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium animated futuristic landing page built with HTML and Tailwind CSS.">
+    <title>NOVA — Digital Experience</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif']
+                    },
+                    animation: {
+                        float: 'float 6s ease-in-out infinite',
+                        floatSlow: 'floatSlow 10s ease-in-out infinite',
+                        pulseGlow: 'pulseGlow 3s ease-in-out infinite',
+                        shimmer: 'shimmer 2.5s linear infinite',
+                        spinSlow: 'spinSlow 18s linear infinite',
+                        spinReverse: 'spinReverse 25s linear infinite',
+                        gradient: 'gradient 8s ease infinite',
+                        blob: 'blob 12s ease-in-out infinite',
+                        marquee: 'marquee 25s linear infinite',
+                        marqueeReverse: 'marqueeReverse 30s linear infinite',
+                        reveal: 'reveal 0.8s ease forwards',
+                        bounceSoft: 'bounceSoft 3s ease-in-out infinite',
+                        blink: 'blink 1.5s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': {
+                                transform: 'translateY(0px)'
+                            },
+                            '50%': {
+                                transform: 'translateY(-20px)'
+                            }
+                        },
+                        floatSlow: {
+                            '0%, 100%': {
+                                transform: 'translate3d(0, 0, 0)'
+                            },
+                            '50%': {
+                                transform: 'translate3d(25px, -35px, 0)'
+                            }
+                        },
+                        pulseGlow: {
+                            '0%, 100%': {
+                                boxShadow: '0 0 20px rgba(139, 92, 246, 0.15)'
+                            },
+                            '50%': {
+                                boxShadow: '0 0 55px rgba(139, 92, 246, 0.45)'
+                            }
+                        },
+                        shimmer: {
+                            '0%': {
+                                backgroundPosition: '-1000px 0'
+                            },
+                            '100%': {
+                                backgroundPosition: '1000px 0'
+                            }
+                        },
+                        spinSlow: {
+                            from: {
+                                transform: 'rotate(0deg)'
+                            },
+                            to: {
+                                transform: 'rotate(360deg)'
+                            }
+                        },
+                        spinReverse: {
+                            from: {
+                                transform: 'rotate(360deg)'
+                            },
+                            to: {
+                                transform: 'rotate(0deg)'
+                            }
+                        },
+                        gradient: {
+                            '0%, 100%': {
+                                backgroundPosition: '0% 50%'
+                            },
+                            '50%': {
+                                backgroundPosition: '100% 50%'
+                            }
+                        },
+                        blob: {
+                            '0%, 100%': {
+                                transform: 'translate(0, 0) scale(1)'
+                            },
+                            '33%': {
+                                transform: 'translate(50px, -40px) scale(1.08)'
+                            },
+                            '66%': {
+                                transform: 'translate(-35px, 35px) scale(0.95)'
+                            }
+                        },
+                        marquee: {
+                            from: {
+                                transform: 'translateX(0)'
+                            },
+                            to: {
+                                transform: 'translateX(-50%)'
+                            }
+                        },
+                        marqueeReverse: {
+                            from: {
+                                transform: 'translateX(-50%)'
+                            },
+                            to: {
+                                transform: 'translateX(0)'
+                            }
+                        },
+                        reveal: {
+                            from: {
+                                opacity: '0',
+                                transform: 'translateY(35px)'
+                            },
+                            to: {
+                                opacity: '1',
+                                transform: 'translateY(0)'
+                            }
+                        },
+                        bounceSoft: {
+                            '0%, 100%': {
+                                transform: 'translateY(0)'
+                            },
+                            '50%': {
+                                transform: 'translateY(-8px)'
+                            }
+                        },
+                        blink: {
+                            '0%, 100%': {
+                                opacity: '1'
+                            },
+                            '50%': {
+                                opacity: '0.35'
+                            }
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: #050509;
+            color: #f5f5f5;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: rgba(139, 92, 246, 0.45);
+            color: #ffffff;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #050509;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(#8b5cf6, #ec4899);
+            border-radius: 999px;
+        }
+
+        .font-display {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .glass-heavy {
+            background: rgba(10, 10, 20, 0.68);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+        }
+
+        .gradient-text {
+            background: linear-gradient(
+                110deg,
+                #ffffff 10%,
+                #c4b5fd 35%,
+                #a78bfa 50%,
+                #f0abfc 70%,
+                #ffffff 90%
+            );
+            background-size: 250% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradient 7s ease infinite;
+        }
+
+        .gradient-border {
+            position: relative;
+        }
+
+        .gradient-border::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            padding: 1px;
+            border-radius: inherit;
+            background: linear-gradient(
+                120deg,
+                rgba(139, 92, 246, 0.7),
+                transparent 35%,
+                rgba(236, 72, 153, 0.55)
+            );
+            -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
+        }
+
+        .noise {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 100;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
+        }
+
+        .cursor-glow {
+            position: fixed;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            pointer-events: none;
+            background: radial-gradient(
+                circle,
+                rgba(139, 92, 246, 0.1),
+                transparent 68%
+            );
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            transition: transform 0.08s linear;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            border-radius: 999px;
+            background: rgba(196, 181, 253, 0.65);
+            box-shadow: 0 0 12px rgba(167, 139, 250, 0.75);
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 999px;
+            filter: blur(1px);
+            pointer-events: none;
+        }
+
+        .orb-one {
+            width: 420px;
+            height: 420px;
+            background: radial-gradient(
+                circle,
+                rgba(124, 58, 237, 0.18),
+                transparent 68%
+            );
+        }
+
+        .orb-two {
+            width: 360px;
+            height: 360px;
+            background: radial-gradient(
+                circle,
+                rgba(219, 39, 119, 0.14),
+                transparent 68%
+            );
+        }
+
+        .orb-three {
+            width: 280px;
+            height: 280px;
+            background: radial-gradient(
+                circle,
+                rgba(59, 130, 246, 0.11),
+                transparent 68%
+            );
+        }
+
+        .btn-primary {
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .btn-primary::before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            z-index: -1;
+            background: linear-gradient(
+                110deg,
+                #7c3aed,
+                #8b5cf6,
+                #ec4899,
+                #7c3aed
+            );
+            background-size: 250% 100%;
+            animation: gradient 6s ease infinite;
+        }
+
+        .btn-primary::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 70%;
+            height: 100%;
+            transform: skewX(-20deg);
+            background: rgba(255, 255, 255, 0.22);
+            transition: left 0.65s ease;
+        }
+
+        .btn-primary:hover::after {
+            left: 150%;
+        }
+
+        .floating-card {
+            transform-style: preserve-3d;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        .floating-card:hover {
+            transform: translateY(-8px) rotateX(2deg) rotateY(-2deg);
+            border-color: rgba(167, 139, 250, 0.25);
+        }
+
+        .icon-box {
+            background: linear-gradient(
+                145deg,
+                rgba(139, 92, 246, 0.18),
+                rgba(236, 72, 153, 0.08)
+            );
+            border: 1px solid rgba(167, 139, 250, 0.15);
+        }
+
+        .line {
+            height: 1px;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.15),
+                transparent
+            );
+        }
+
+        .stat-number {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .marquee-wrapper {
+            overflow: hidden;
+            mask-image: linear-gradient(
+                90deg,
+                transparent,
+                black 10%,
+                black 90%,
+                transparent
+            );
+            -webkit-mask-image: linear-gradient(
+                90deg,
+                transparent,
+                black 10%,
+                black 90%,
+                transparent
+            );
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+        }
+
+        .marquee-item {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            padding-right: 28px;
+            white-space: nowrap;
+        }
+
+        .showcase-image {
+            background:
+                radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.25), transparent 25%),
+                radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.16), transparent 28%),
+                linear-gradient(135deg, #11111b, #08080e);
+        }
+
+        .window-bar {
+            display: flex;
+            gap: 7px;
+        }
+
+        .window-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+        .code-line {
+            height: 7px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        .code-line.short {
+            width: 38%;
+        }
+
+        .code-line.medium {
+            width: 62%;
+        }
+
+        .code-line.long {
+            width: 84%;
+        }
+
+        .code-line.purple {
+            background: rgba(139, 92, 246, 0.35);
+        }
+
+        .code-line.pink {
+            background: rgba(236, 72, 153, 0.28);
+        }
+
+        .dashboard-card {
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 18px;
+        }
+
+        .bar {
+            width: 7px;
+            border-radius: 999px 999px 4px 4px;
+            background: linear-gradient(
+                to top,
+                rgba(139, 92, 246, 0.25),
+                rgba(196, 181, 253, 0.75)
+            );
+            transform-origin: bottom;
+            animation: barPulse 2.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes barPulse {
+            from {
+                transform: scaleY(0.55);
+            }
+
+            to {
+                transform: scaleY(1);
+            }
+        }
+
+        .pricing-popular {
+            box-shadow:
+                0 0 0 1px rgba(139, 92, 246, 0.2),
+                0 25px 100px rgba(124, 58, 237, 0.13);
+        }
+
+        .check {
+            width: 20px;
+            height: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(139, 92, 246, 0.12);
+            color: #c4b5fd;
+            flex-shrink: 0;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 240px;
+        }
+
+        .faq-icon {
+            transition: transform 0.35s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        .delay-4 {
+            transition-delay: 0.4s;
+        }
+
+        .delay-5 {
+            transition-delay: 0.5s;
+        }
+
+        .mobile-menu {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition:
+                max-height 0.35s ease,
+                opacity 0.35s ease;
+        }
+
+        .mobile-menu.open {
+            max-height: 500px;
+            opacity: 1;
+        }
+
+        .nav-scrolled {
+            background: rgba(5, 5, 9, 0.72) !important;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+        }
+
+        .ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(167, 139, 250, 0.13);
+        }
+
+        .ring-one {
+            width: 520px;
+            height: 520px;
+        }
+
+        .ring-two {
+            width: 700px;
+            height: 700px;
+        }
+
+        .ring-three {
+            width: 900px;
+            height: 900px;
+        }
+
+        .typing-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1em;
+            margin-left: 4px;
+            vertical-align: -2px;
+            background: #c4b5fd;
+            animation: blink 1s infinite;
+        }
+
+        @media (max-width: 768px) {
+            .orb-one {
+                width: 280px;
+                height: 280px;
+            }
+
+            .orb-two {
+                width: 240px;
+                height: 240px;
+            }
+
+            .ring-one {
+                width: 320px;
+                height: 320px;
+            }
+
+            .ring-two {
+                width: 480px;
+                height: 480px;
+            }
+
+            .ring-three {
+                width: 650px;
+                height: 650px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="noise"></div>
+    <div id="cursorGlow" class="cursor-glow hidden md:block"></div>
+
+    <!-- Ambient Background -->
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+        <div class="orb orb-one absolute -left-48 top-20 animate-blob"></div>
+        <div class="orb orb-two absolute right-[-140px] top-[28%] animate-blob" style="animation-delay: -4s;"></div>
+        <div class="orb orb-three absolute left-[40%] bottom-[-100px] animate-blob" style="animation-delay: -8s;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 border-b border-transparent transition-all duration-500">
+        <div class="mx-auto max-w-7xl px-5 sm:px-8">
+            <div class="flex h-20 items-center justify-between">
+                <a href="#home" class="group flex items-center gap-3">
+                    <div class="relative flex h-10 w-10 items-center justify-center rounded-xl bg-white/[0.06] ring-1 ring-white/10">
+                        <div class="absolute inset-1 rounded-lg bg-gradient-to-br from-violet-500/80 to-fuchsia-500/70 opacity-80 blur-sm"></div>
+                        <span class="relative font-display text-lg font-bold">N</span>
+                    </div>
+
+                    <div>
+                        <div class="font-display text-lg font-bold tracking-[0.18em]">NOVA</div>
+                        <div class="text-[9px] uppercase tracking-[0.32em] text-white/35">Digital Studio</div>
+                    </div>
+                </a>
+
+                <nav class="hidden items-center gap-8 lg:flex">
+                    <a href="#features" class="text-sm text-white/55 transition hover:text-white">Features</a>
+                    <a href="#showcase" class="text-sm text-white/55 transition hover:text-white">Showcase</a>
+                    <a href="#process" class="text-sm text-white/55 transition hover:text-white">Process</a>
+                    <a href="#pricing" class="text-sm text-white/55 transition hover:text-white">Pricing</a>
+                    <a href="#faq" class="text-sm text-white/55 transition hover:text-white">FAQ</a>
+                </nav>
+
+                <div class="hidden items-center gap-3 lg:flex">
+                    <button class="rounded-full px-5 py-2.5 text-sm text-white/60 transition hover:bg-white/[0.05] hover:text-white">
+                        Sign In
+                    </button>
+
+                    <a href="#contact" class="btn-primary rounded-full px-5 py-2.5 text-sm font-semibold text-white">
+                        Start a Project
+                    </a>
+                </div>
+
+                <button id="menuButton" class="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] lg:hidden">
+                    <svg id="menuIcon" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="mobileMenu" class="mobile-menu lg:hidden">
+                <div class="glass-heavy mb-4 rounded-2xl p-4">
+                    <div class="flex flex-col gap-1">
+                        <a href="#features" class="rounded-xl px-4 py-3 text-sm text-white/60 transition hover:bg-white/[0.05] hover:text-white">Features</a>
+                        <a href="#showcase" class="rounded-xl px-4 py-3 text-sm text-white/60 transition hover:bg-white/[0.05] hover:text-white">Showcase</a>
+                        <a href="#process" class="rounded-xl px-4 py-3 text-sm text-white/60 transition hover:bg-white/[0.05] hover:text-white">Process</a>
+                        <a href="#pricing" class="rounded-xl px-4 py-3 text-sm text-white/60 transition hover:bg-white/[0.05] hover:text-white">Pricing</a>
+                        <a href="#faq" class="rounded-xl px-4 py-3 text-sm text-white/60 transition hover:bg-white/[0.05] hover:text-white">FAQ</a>
+                        <a href="#contact" class="mt-2 rounded-xl bg-violet-500/20 px-4 py-3 text-center text-sm font-semibold text-violet-200">
+                            Start a Project
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <main id="home">
+        <section class="relative min-h-screen overflow-hidden pt-28">
+            <div class="hero-grid absolute inset-0"></div>
+
+            <div id="particles" class="absolute inset-0"></div>
+
+            <div class="absolute left-1/2 top-[42%] -translate-x-1/2 -translate-y-1/2">
+                <div class="ring ring-three animate-spinSlow"></div>
+                <div class="ring ring-two animate-spinReverse"></div>
+                <div class="ring ring-one animate-spinSlow"></div>
+            </div>
+
+            <div class="relative mx-auto flex min-h-[calc(100vh-7rem)] max-w-7xl items-center px-5 py-20 sm:px-8">
+                <div class="grid w-full items-center gap-16 lg:grid-cols-[1.05fr_0.95fr]">
+                    <div class="max-w-3xl">
+                        <div class="reveal mb-7 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.035] px-3 py-1.5">
+                            <span class="relative flex h-2 w-2">
+                                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-violet-400 opacity-60"></span>
+                                <span class="relative inline-flex h-2 w-2 rounded-full bg-violet-300"></span>
+                            </span>
+                            <span class="text-xs font-medium text-white/60">
+                                Building the future of digital experiences
+                            </span>
+                        </div>
+
+                        <h1 class="reveal delay-1 font-display text-5xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-6xl md:text-7xl lg:text-[5.8rem]">
+                            Design beyond
+                            <span class="gradient-text block">imagination.</span>
+                        </h1>
+
+                        <p class="reveal delay-2 mt-7 max-w-2xl text-base leading-8 text-white/50 sm:text-lg">
+                            We create immersive digital products where
+                            <span class="text-white/80">design, technology and motion</span>
+                            come together to turn ambitious ideas into memorable experiences.
+                        </p>
+
+                        <div class="reveal delay-3 mt-9 flex flex-col gap-3 sm:flex-row">
+                            <a href="#contact" class="btn-primary group inline-flex items-center justify-center gap-3 rounded-full px-6 py-3.5 text-sm font-semibold shadow-2xl shadow-violet-950/30">
+                                Explore the Studio
+                                <svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M5 12h14m-5-5 5 5-5 5"/>
+                                </svg>
+                            </a>
+
+                            <a href="#showcase" class="inline-flex items-center justify-center gap-3 rounded-full border border-white/10 bg-white/[0.025] px-6 py-3.5 text-sm font-medium text-white/70 transition hover:border-white/20 hover:bg-white/[0.05] hover:text-white">
+                                View our work
+                            </a>
+                        </div>
+
+                        <div class="reveal delay-4 mt-12 flex flex-wrap items-center gap-x-7 gap-y-3 text-xs text-white/35">
+                            <span class="flex items-center gap-2">
+                                <svg class="h-4 w-4 text-violet-300/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 6v6l4 2"/>
+                                    <circle cx="12" cy="12" r="9"/>
+                                </svg>
+                                Fast delivery
+                            </span>
+
+                            <span class="flex items-center gap-2">
+                                <svg class="h-4 w-4 text-violet-300/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="m5 12 4 4L19 6"/>
+                                </svg>
+                                Pixel perfect
+                            </span>
+
+                            <span class="flex items-center gap-2">
+                                <svg class="h-4 w-4 text-violet-300/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 3v18M3 12h18"/>
+                                </svg>
+                                Built to scale
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Hero Visual -->
+                    <div class="relative mx-auto w-full max-w-xl lg:ml-auto">
+                        <div class="absolute -inset-10 rounded-full bg-violet-500/10 blur-3xl"></div>
+
+                        <div class="relative animate-float">
+                            <div class="glass-heavy gradient-border relative overflow-hidden rounded-[30px] p-3 shadow-2xl shadow-black/50">
+                                <div class="showcase-image relative min-h-[480px] overflow-hidden rounded-[23px] border border-white/5 p-5 sm:min-h-[550px]">
+                                    <div class="absolute inset-0 opacity-50">
+                                        <div class="absolute left-[10%] top-[15%] h-48 w-48 rounded-full bg-violet-500/10 blur-3xl"></div>
+                                        <div class="absolute bottom-[5%] right-[5%] h-56 w-56 rounded-full bg-fuchsia-500/10 blur-3xl"></div>
+                                    </div>
+
+                                    <div class="relative flex items-center justify-between">
+                                        <div class="window-bar">
+                                            <span class="window-dot"></span>
+                                            <span class="window-dot"></span>
+                                            <span class="window-dot"></span>
+                                        </div>
+
+                                        <div class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[9px] uppercase tracking-[0.25em] text-white/35">
+                                            Nova / Studio
+                                        </div>
+                                    </div>
+
+                                    <div class="relative mt-8">
+                                        <div class="mb-3 text-[10px] uppercase tracking-[0.3em] text-violet-300/55">
+                                            Digital Architecture
+                                        </div>
+
+                                        <div class="font-display text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-5xl">
+                                            Build
+                                            <span class="gradient-text">different.</span>
+                                        </div>
+
+                                        <div class="mt-4 max-w-sm text-xs leading-6 text-white/35">
+                                            An interface designed to feel alive.
+                                            Fluid interactions. Thoughtful details.
+                                            Powerful technology.
+                                        </div>
+                                    </div>
+
+                                    <div class="relative mt-10 grid grid-cols-2 gap-3">
+                                        <div class="dashboard-card col-span-2 p-4">
+                                            <div class="mb-5 flex items-center justify-between">
+                                                <div>
+                                                    <div class="text-[10px] uppercase tracking-[0.2em] text-white/30">
+                                                        Experience score
+                                                    </div>
+                                                    <div class="mt-1 text-2xl font-semibold">98.4%</div>
+                                                </div>
+
+                                                <div class="rounded-full bg-emerald-400/10 px-2.5 py-1 text-[9px] text-emerald-300">
+                                                    +18.7%
+                                                </div>
+                                            </div>
+
+                                            <div class="flex h-28 items-end gap-2">
+                                                <div class="bar h-[42%] flex-1" style="animation-delay: 0s;"></div>
+                                                <div class="bar h-[63%] flex-1" style="animation-delay: .2s;"></div>
+                                                <div class="bar h-[51%] flex-1" style="animation-delay: .4s;"></div>
+                                                <div class="bar h-[76%] flex-1" style="animation-delay: .6s;"></div>
+                                                <div class="bar h-[66%] flex-1" style="animation-delay: .8s;"></div>
+                                                <div class="bar h-[88%] flex-1" style="animation-delay: 1s;"></div>
+                                                <div class="bar h-[96%] flex-1" style="animation-delay: 1.2s;"></div>
+                                                <div class="bar h-[79%] flex-1" style="animation-delay: 1.4s;"></div>
+                                                <div class="bar h-[100%] flex-1" style="animation-delay: 1.6s;"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="dashboard-card p-4">
+                                            <div class="text-[9px] uppercase tracking-[0.2em] text-white/30">
+                                                Projects
+                                            </div>
+                                            <div class="mt-2 text-2xl font-semibold">142</div>
+                                            <div class="mt-2 text-[9px] text-violet-300/60">
+                                                Delivered worldwide
+                                            </div>
+                                        </div>
+
+                                        <div class="dashboard-card p-4">
+                                            <div class="text-[9px] uppercase tracking-[0.2em] text-white/30">
+                                                Velocity
+                                            </div>
+                                            <div class="mt-2 text-2xl font-semibold">4.8x</div>
+                                            <div class="mt-2 text-[9px] text-fuchsia-300/60">
+                                                Faster iteration
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/10 bg-black/25 p-3 backdrop-blur-xl">
+                                        <div class="flex items-center gap-3">
+                                            <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-violet-500/15 text-violet-200">
+                                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/>
+                                                </svg>
+                                            </div>
+
+                                            <div class="flex-1">
+                                                <div class="text-[10px] font-medium text-white/65">
+                                                    System status
+                                                </div>
+                                                <div class="mt-0.5 text-[9px] text-white/30">
+                                                    All systems operational
+                                                </div>
+                                            </div>
+
+                                            <div class="h-2 w-2 animate-pulse rounded-full bg-emerald-400 shadow-lg shadow-emerald-500/40"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="glass absolute -right-5 top-14 hidden w-40 rounded-2xl p-3 shadow-xl sm:block">
+                                <div class="flex items-center gap-2">
+                                    <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-400/10 text-emerald-300">
+                                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="m5 12 4 4L19 6"/>
+                                        </svg>
+                                    </div>
+
+                                    <div>
+                                        <div class="text-[10px] font-medium">Live sync</div>
+                                        <div class="text-[8px] text-white/30">Connected</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="glass absolute -bottom-6 -left-6 hidden w-44 rounded-2xl p-3 shadow-xl sm:block">
+                                <div class="text-[8px] uppercase tracking-[0.2em] text-white/30">
+                                    Performance
+                                </div>
+
+                                <div class="mt-2 flex items-end justify-between">
+                                    <div class="text-xl font-semibold">99.9</div>
+                                    <div class="text-[9px] text-violet-300/70">+12.4%</div>
+                                </div>
+
+                                <div class="mt-3 h-1.5 overflow-hidden rounded-full bg-white/5">
+                                    <div class="h-full w-[92%] rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-400"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute bottom-7 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 text-[9px] uppercase tracking-[0.3em] text-white/25 md:flex">
+                <span>Scroll to explore</span>
+                <div class="h-10 w-px bg-gradient-to-b from-white/20 to-transparent"></div>
+            </div>
+        </section>
+
+        <!-- Logo Marquee -->
+        <section class="relative overflow-hidden border-y border-white/[0.06] py-7">
+            <div class="marquee-wrapper">
+                <div class="marquee-track animate-marquee">
+                    <div class="marquee-item">
+                        <span class="font-display text-sm font-semibold tracking-[0.2em] text-white/35">VERTEX</span>
+                        <span class="text-white/10">✦</span>
+                        <span class="font-display text-sm font-semibold tracking-[0.2em] text-white/35">ORBIT</span>
+                        <span class="text-white/10">✦</span>
+                        <span class="font-display text-sm font-semibold tracking-[0.2em] text-white/35">NEXUS</span>
+                        <span class="text-white/10">✦</span>
+                        <span class="font-display text-sm font-semibold tracking-[0.2em] text-white/35">AETHER</span>
+                        <span class="text-white/10">✦</span>
+                        <span class="font-display text-sm font-semibold tracking-[0.2em] text-white/35">LUMEN</span>
+                        <span class="text-white/10">✦</span>
+                        <span class="font-display text-sm font-semibold tracking-[0.2em] text-white/35">VANTA</span>
+                        <span class="text-white/10">✦</span>
+                    </div>
+
+                    <div class="marquee-item">
+                        <span class="font-display text-sm font-semibold tracking-[0.2em] text-white/35">VERTEX</span>
+                        <span class="text-white/10">✦</span>
+                        <span class="font-display text-sm font-semibold tracking-[0.2em] text-white/35">ORBIT</span>
+                        <span class="text-white/10">✦</span>
+                        <span class="font-display text-sm font-semibold tracking-[0.2em] text-white/35">NEXUS</span>
+                        <span class="text-white/10">✦</span>
+                        <span class="font-display text-sm font-semibold tracking-[0.2em] text-white/35">AETHER</span>
+                        <span class="text-white/10">✦</span>
+                        <span class="font-display text-sm font-semibold tracking-[0.2em] text-white/35">LUMEN</span>
+                        <span class="text-white/10">✦</span>
+                        <span class="font-display text-sm font-semibold tracking-[0.2em] text-white/35">VANTA</span>
+                        <span class="text-white/10">✦</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats -->
+        <section class="mx-auto max-w-7xl px-5 py-24 sm:px-8">
+            <div class="grid grid-cols-2 gap-5 md:grid-cols-4">
+                <div class="reveal text-center">
+                    <div class="stat-number font-display text-4xl font-semibold sm:text-5xl" data-target="142">0</div>
+                    <div class="mt-2 text-xs uppercase tracking-[0.2em] text-white/30">Projects</div>
+                </div>
+
+                <div class="reveal delay-1 text-center">
+                    <div class="stat-number font-display text-4xl font-semibold sm:text-5xl" data-target="38">0</div>
+                    <div class="mt-2 text-xs uppercase tracking-[0.2em] text-white/30">Countries</div>
+                </div>
+
+                <div class="reveal delay-2 text-center">
+                    <div class="stat-number font-display text-4xl font-semibold sm:text-5xl" data-target="97">0</div>
+                    <div class="mt-2 text-xs uppercase tracking-[0.2em] text-white/30">Retention %</div>
+                </div>
+
+                <div class="reveal delay-3 text-center">
+                    <div class="stat-number font-display text-4xl font-semibold sm:text-5xl" data-target="12">0</div>
+                    <div class="mt-2 text-xs uppercase tracking-[0.2em] text-white/30">Awards</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section id="features" class="relative mx-auto max-w-7xl px-5 py-24 sm:px-8">
+            <div class="absolute left-1/2 top-0 h-px w-2/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+
+            <div class="grid gap-14 lg:grid-cols-[0.8fr_1.2fr]">
+                <div class="reveal max-w-lg">
+                    <div class="mb-5 text-xs uppercase tracking-[0.3em] text-violet-300/60">
+                        What we do
+                    </div>
+
+                    <h2 class="font-display text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-5xl">
+                        Everything you need to
+                        <span class="gradient-text">stand apart.</span>
+                    </h2>
+
+                    <p class="mt-6 text-sm leading-7 text-white/40">
+                        From the first sketch to the final interaction,
+                        our multidisciplinary team builds digital experiences
+                        that look exceptional and work beautifully.
+                    </p>
+
+                    <a href="#contact" class="group mt-8 inline-flex items-center gap-3 text-sm font-medium text-white/65 transition hover:text-white">
+                        Talk to our team
+                        <svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M5 12h14m-5-5 5 5-5 5"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="grid gap-4 sm:grid-cols-2">
+                    <div class="floating-card glass reveal rounded-3xl p-6">
+                        <div class="icon-box flex h-12 w-12 items-center justify-center rounded-2xl text-violet-200">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 3v18M3 12h18"/>
+                            </svg>
+                        </div>
+
+                        <h3 class="mt-6 font-display text-xl font-semibold">Digital Strategy</h3>
+
+                        <p class="mt-3 text-sm leading-6 text-white/35">
+                            Clear thinking before beautiful execution.
+                            We define the product direction, audience and
+                            digital architecture.
+                        </p>
+
+                        <div class="mt-7 text-xs text-white/25">01 / Strategy</div>
+                    </div>
+
+                    <div class="floating-card glass reveal delay-1 rounded-3xl p-6 sm:translate-y-8">
+                        <div class="icon-box flex h-12 w-12 items-center justify-center rounded-2xl text-violet-200">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="m4 18 6-6 4 4 6-8"/>
+                                <path stroke-linecap="round" stroke-width="1.6" d="M4 21h16"/>
+                            </svg>
+                        </div>
+
+                        <h3 class="mt-6 font-display text-xl font-semibold">Product Design</h3>
+
+                        <p class="mt-3 text-sm leading-6 text-white/35">
+                            Interfaces that make complex products feel
+                            simple, intuitive and unmistakably yours.
+                        </p>
+
+                        <div class="mt-7 text-xs text-white/25">02 / Design</div>
+                    </div>
+
+                    <div class="floating-card glass reveal delay-2 rounded-3xl p-6">
+                        <div class="icon-box flex h-12 w-12 items-center justify-center rounded-2xl text-violet-200">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M8 9 4 12l4 3M16 9l4 3-4 3M14 5l-4 14"/>
+                            </svg>
+                        </div>
+
+                        <h3 class="mt-6 font-display text-xl font-semibold">Development</h3>
+
+                        <p class="mt-3 text-sm leading-6 text-white/35">
+                            Fast, scalable and production-ready digital
+                            products built with modern technology.
+                        </p>
+
+                        <div class="mt-7 text-xs text-white/25">03 / Build</div>
+                    </div>
+
+                    <div class="floating-card glass reveal delay-3 rounded-3xl p-6 sm:translate-y-8">
+                        <div class="icon-box flex h-12 w-12 items-center justify-center rounded-2xl text-violet-200">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 3 4 7v5c0 4.8 3.4 7.9 8 9 4.6-1.1 8-4.2 8-9V7l-8-4Z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="m9 12 2 2 4-4"/>
+                            </svg>
+                        </div>
+
+                        <h3 class="mt-6 font-display text-xl font-semibold">Growth Systems</h3>
+
+                        <p class="mt-3 text-sm leading-6 text-white/35">
+                            Continuous optimization, analytics and systems
+                            designed to keep your product moving forward.
+                        </p>
+
+                        <div class="mt-7 text-xs text-white/25">04 / Growth</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Showcase -->
+        <section id="showcase" class="mx-auto max-w-7xl px-5 py-28 sm:px-8">
+            <div class="reveal mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+                <div>
+                    <div class="mb-5 text-xs uppercase tracking-[0.3em] text-violet-300/60">
+                        Selected work
+                    </div>
+
+                    <h2 class="font-display text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">
+                        Made to be
+                        <span class="gradient-text">remembered.</span>
+                    </h2>
+                </div>
+
+                <p class="max-w-md text-sm leading-7 text-white/35">
+                    A glimpse into the products, platforms and identities
+                    we've created with ambitious teams around the world.
+                </p>
+            </div>
+
+            <div class="grid gap-6 lg:grid-cols-2">
+                <article class="group reveal overflow-hidden rounded-[30px] border border-white/[0.07] bg-white/[0.02]">
+                    <div class="showcase-image relative h-[390px] overflow-hidden p-5 transition duration-700 group-hover:scale-[1.015]">
+                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(139,92,246,.22),transparent_30%),radial-gradient(circle_at_80%_80%,rgba(236,72,153,.15),transparent_28%)]"></div>
+
+                        <div class="relative h-full rounded-2xl border border-white/10 bg-black/20 p-5 backdrop-blur-sm">
+                            <div class="flex items-center justify-between">
+                                <div class="font-display text-sm font-semibold tracking-widest">AETHER</div>
+                                <div class="rounded-full border border-white/10 px-3 py-1 text-[8px] uppercase tracking-widest text-white/35">
+                                    Finance
+                                </div>
+                            </div>
+
+                            <div class="mt-14 max-w-sm">
+                                <div class="text-xs uppercase tracking-[0.25em] text-violet-300/50">
+                                    Intelligent wealth
+                                </div>
+
+                                <div class="mt-3 font-display text-4xl font-semibold leading-tight tracking-[-0.04em]">
+                                    Your money,
+                                    <br>
+                                    <span class="text-white/45">reimagined.</span>
+                                </div>
+                            </div>
+
+                            <div class="absolute bottom-5 left-5 right-5 grid grid-cols-3 gap-2">
+                                <div class="rounded-xl border border-white/10 bg-white/[0.04] p-3">
+                                    <div class="text-[8px] text-white/25">Balance</div>
+                                    <div class="mt-1 text-sm font-medium">$82.4k</div>
+                                </div>
+
+                                <div class="rounded-xl border border-white/10 bg-white/[0.04] p-3">
+                                    <div class="text-[8px] text-white/25">Growth</div>
+                                    <div class="mt-1 text-sm font-medium text-emerald-300">+24.8%</div>
+                                </div>
+
+                                <div class="rounded-xl border border-white/10 bg-white/[0.04] p-3">
+                                    <div class="text-[8px] text-white/25">Score</div>
+                                    <div class="mt-1 text-sm font-medium">A+</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between p-6">
+                        <div>
+                            <h3 class="font-display text-lg font-semibold">Aether Finance</h3>
+                            <p class="mt-1 text-xs text-white/30">Product design · Development</p>
+                        </div>
+
+                        <div class="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 transition duration-300 group-hover:border-violet-300/30 group-hover:bg-violet-500/10">
+                            <svg class="h-4 w-4 transition-transform duration-300 group-hover:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M7 17 17 7M7 7h10v10"/>
+                            </svg>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="group reveal delay-1 overflow-hidden rounded-[30px] border border-white/[0.07] bg-white/[0.02]">
+                    <div class="showcase-image relative h-[390px] overflow-hidden p-5 transition duration-700 group-hover:scale-[1.015]">
+                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_75%_25%,rgba(59,130,246,.18),transparent_30%),radial-gradient(circle_at_20%_75%,rgba(139,92,246,.18),transparent_28%)]"></div>
+
+                        <div class="relative h-full rounded-2xl border border-white/10 bg-black/20 p-5 backdrop-blur-sm">
+                            <div class="flex items-center justify-between">
+                                <div class="font-display text-sm font-semibold tracking-widest">ORBIT</div>
+                                <div class="rounded-full border border-white/10 px-3 py-1 text-[8px] uppercase tracking-widest text-white/35">
+                                    AI
+                                </div>
+                            </div>
+
+                            <div class="mt-14">
+                                <div class="text-xs uppercase tracking-[0.25em] text-blue-300/50">
+                                    Intelligence layer
+                                </div>
+
+                                <div class="mt-3 font-display text-4xl font-semibold leading-tight tracking-[-0.04em]">
+                                    Think faster.
+                                    <br>
+                                    <span class="text-white/45">Create more.</span>
+                                </div>
+                            </div>
+
+                            <div class="absolute bottom-5 left-5 right-5 rounded-xl border border-white/10 bg-white/[0.035] p-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="h-8 w-8 rounded-lg bg-blue-400/10"></div>
+
+                                    <div class="flex-1">
+                                        <div class="h-2.5 w-24 rounded-full bg-white/10"></div>
+                                        <div class="mt-2 h-2 w-36 rounded-full bg-white/5"></div>
+                                    </div>
+
+                                    <div class="h-7 w-7 rounded-full bg-violet-400/10"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between p-6">
+                        <div>
+                            <h3 class="font-display text-lg font-semibold">Orbit Intelligence</h3>
+                            <p class="mt-1 text-xs text-white/30">Strategy · UX · AI systems</p>
+                        </div>
+
+                        <div class="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 transition duration-300 group-hover:border-violet-300/30 group-hover:bg-violet-500/10">
+                            <svg class="h-4 w-4 transition-transform duration-300 group-hover:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M7 17 17 7M7 7h10v10"/>
+                            </svg>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="group reveal delay-2 overflow-hidden rounded-[30px] border border-white/[0.07] bg-white/[0.02]">
+                    <div class="showcase-image relative h-[390px] overflow-hidden p-5 transition duration-700 group-hover:scale-[1.015]">
+                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_30%,rgba(236,72,153,.16),transparent_30%),radial-gradient(circle_at_75%_70%,rgba(139,92,246,.16),transparent_30%)]"></div>
+
+                        <div class="relative h-full rounded-2xl border border-white/10 bg-black/20 p-5 backdrop-blur-sm">
+                            <div class="flex items-center justify-between">
+                                <div class="font-display text-sm font-semibold tracking-widest">VANTA</div>
+                                <div class="rounded-full border border-white/10 px-3 py-1 text-[8px] uppercase tracking-widest text-white/35">
+                                    Fashion
+                                </div>
+                            </div>
+
+                            <div class="mt-14">
+                                <div class="text-xs uppercase tracking-[0.25em] text-fuchsia-300/50">
+                                    New collection
+                                </div>
+
+                                <div class="mt-3 font-display text-4xl font-semibold leading-tight tracking-[-0.04em]">
+                                    Less noise.
+                                    <br>
+                                    <span class="text-white/45">More identity.</span>
+                                </div>
+                            </div>
+
+                            <div class="absolute bottom-5 left-5 right-5 flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.035] p-4">
+                                <div>
+                                    <div class="text-[8px] uppercase tracking-widest text-white/25">Collection 01</div>
+                                    <div class="mt-1 text-sm font-medium">Noir Objects</div>
+                                </div>
+
+                                <div class="h-10 w-10 rounded-full bg-gradient-to-br from-white/15 to-white/[0.02]"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between p-6">
+                        <div>
+                            <h3 class="font-display text-lg font-semibold">Vanta Objects</h3>
+                            <p class="mt-1 text-xs text-white/30">Brand identity · E-commerce</p>
+                        </div>
+
+                        <div class="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 transition duration-300 group-hover:border-violet-300/30 group-hover:bg-violet-500/10">
+                            <svg class="h-4 w-4 transition-transform duration-300 group-hover:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M7 17 17 7M7 7h10v10"/>
+                            </svg>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="group reveal delay-3 overflow-hidden rounded-[30px] border border-white/[0.07] bg-white/[0.02]">
+                    <div class="showcase-image relative h-[390px] overflow-hidden p-5 transition duration-700 group-hover:scale-[1.015]">
+                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(16,185,129,.12),transparent_30%),radial-gradient(circle_at_20%_80%,rgba(59,130,246,.14),transparent_30%)]"></div>
+
+                        <div class="relative h-full rounded-2xl border border-white/10 bg-black/20 p-5 backdrop-blur-sm">
+                            <div class="flex items-center justify-between">
+                                <div class="font-display text-sm font-semibold tracking-widest">LUMEN</div>
+                                <div class="rounded-full border border-white/10 px-3 py-1 text-[8px] uppercase tracking-widest text-white/35">
+                                    SaaS
+                                </div>
+                            </div>
+
+                            <div class="mt-10 grid grid-cols-[0.7fr_1.3fr] gap-3">
+                                <div class="space-y-2">
+                                    <div class="dashboard-card p-3">
+                                        <div class="h-2 w-10 rounded-full bg-white/10"></div>
+                                        <div class="mt-3 h-5 w-16 rounded-md bg-violet-400/10"></div>
+                                    </div>
+
+                                    <div class="dashboard-card p-3">
+                                        <div class="h-2 w-12 rounded-full bg-white/10"></div>
+                                        <div class="mt-3 h-5 w-12 rounded-md bg-white/5"></div>
+                                    </div>
+
+                                    <div class="dashboard-card p-3">
+                                        <div class="h-2 w-8 rounded-full bg-white/10"></div>
+                                        <div class="mt-3 h-5 w-20 rounded-md bg-white/5"></div>
+                                    </div>
+                                </div>
+
+                                <div class="dashboard-card p-4">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <div class="text-[8px] text-white/25">Overview</div>
+                                            <div class="mt-1 text-lg font-semibold">Growth</div>
+                                        </div>
+
+                                        <div class="text-[8px] text-emerald-300/60">+28%</div>
+                                    </div>
+
+                                    <div class="mt-6 flex h-28 items-end gap-2">
+                                        <div class="bar h-[38%] flex-1"></div>
+                                        <div class="bar h-[52%] flex-1" style="animation-delay:.2s;"></div>
+                                        <div class="bar h-[44%] flex-1" style="animation-delay:.4s;"></div>
+                                        <div class="bar h-[70%] flex-1" style="animation-delay:.6s;"></div>
+                                        <div class="bar h-[64%] flex-1" style="animation-delay:.8s;"></div>
+                                        <div class="bar h-[88%] flex-1" style="animation-delay:1s;"></div>
+                                        <div class="bar h-[100%] flex-1" style="animation-delay:1.2s;"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="absolute bottom-5 left-5 right-5 flex items-center justify-between">
+                                <div class="text-[9px] uppercase tracking-widest text-white/25">Lumen analytics</div>
+                                <div class="flex gap-1">
+                                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-400/70"></span>
+                                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-400/30"></span>
+                                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-400/15"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between p-6">
+                        <div>
+                            <h3 class="font-display text-lg font-semibold">Lumen Analytics</h3>
+                            <p class="mt-1 text-xs text-white/30">SaaS platform · Web app</p>
+                        </div>
+
+                        <div class="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 transition duration-300 group-hover:border-violet-300/30 group-hover:bg-violet-500/10">
+                            <svg class="h-4 w-4 transition-transform duration-300 group-hover:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M7 17 17 7M7 7h10v10"/>
+                            </svg>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Process -->
+        <section id="process" class="relative overflow-hidden border-y border-white/[0.06]">
+            <div class="absolute inset-0 bg-gradient-to-b from-violet-500/[0.025] via-transparent to-fuchsia-500/[0.02]"></div>
+
+            <div class="relative mx-auto max-w-7xl px-5 py-28 sm:px-8">
+                <div class="reveal mx-auto max-w-2xl text-center">
+                    <div class="mb-5 text-xs uppercase tracking-[0.3em] text-violet-300/60">
+                        Our process
+                    </div>
+
+                    <h2 class="font-display text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">
+                        Simple process.
+                        <span class="gradient-text">Serious results.</span>
+                    </h2>
+
+                    <p class="mx-auto mt-6 max-w-xl text-sm leading-7 text-white/35">
+                        No endless meetings. No unnecessary complexity.
+                        Just a focused process built around clarity and momentum.
+                    </p>
+                </div>
+
+                <div class="relative mt-20">
+                    <div class="absolute left-[12.5%] right-[12.5%] top-8 hidden h-px bg-gradient-to-r from-transparent via-violet-300/20 to-transparent lg:block"></div>
+
+                    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+                        <div class="reveal relative text-center">
+                            <div class="relative mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-white/10 bg-[#08080e] shadow-xl">
+                                <span class="font-display text-lg font-semibold text-violet-200">01</span>
+                            </div>
+
+                            <h3 class="mt-7 font-display text-xl font-semibold">Discover</h3>
+
+                            <p class="mx-auto mt-3 max-w-xs text-sm leading-6 text-white/35">
+                                We understand your goals, audience,
+                                business and opportunity.
+                            </p>
+                        </div>
+
+                        <div class="reveal delay-1 relative text-center">
+                            <div class="relative mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-white/10 bg-[#08080e] shadow-xl">
+                                <span class="font-display text-lg font-semibold text-violet-200">02</span>
+                            </div>
+
+                            <h3 class="mt-7 font-display text-xl font-semibold">Define</h3>
+
+                            <p class="mx-auto mt-3 max-w-xs text-sm leading-6 text-white/35">
+                                We transform insights into a clear
+                                product and experience direction.
+                            </p>
+                        </div>
+
+                        <div class="reveal delay-2 relative text-center">
+                            <div class="relative mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-white/10 bg-[#08080e] shadow-xl">
+                                <span class="font-display text-lg font-semibold text-violet-200">03</span>
+                            </div>
+
+                            <h3 class="mt-7 font-display text-xl font-semibold">Create</h3>
+
+                            <p class="mx-auto mt-3 max-w-xs text-sm leading-6 text-white/35">
+                                Design and technology come together
+                                to create the real product.
+                            </p>
+                        </div>
+
+                        <div class="reveal delay-3 relative text-center">
+                            <div class="relative mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-white/10 bg-[#08080e] shadow-xl">
+                                <span class="font-display text-lg font-semibold text-violet-200">04</span>
+                            </div>
+
+                            <h3 class="mt-7 font-display text-xl font-semibold">Evolve</h3>
+
+                            <p class="mx-auto mt-3 max-w-xs text-sm leading-6 text-white/35">
+                                We measure, learn and continuously improve
+                                what we've built together.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Capabilities -->
+        <section class="mx-auto max-w-7xl px-5 py-28 sm:px-8">
+            <div class="grid items-center gap-16 lg:grid-cols-2">
+                <div class="reveal">
+                    <div class="mb-5 text-xs uppercase tracking-[0.3em] text-violet-300/60">
+                        Built for impact
+                    </div>
+
+                    <h2 class="font-display text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-5xl">
+                        Beauty is only the
+                        <span class="gradient-text">beginning.</span>
+                    </h2>
+
+                    <p class="mt-6 text-sm leading-7 text-white/40">
+                        A great interface should not only look good.
+                        It should communicate clearly, perform quickly,
+                        scale reliably and make every interaction feel intentional.
+                    </p>
+
+                    <div class="mt-8 space-y-5">
+                        <div class="flex gap-4">
+                            <span class="check">✓</span>
+                            <div>
+                                <h4 class="text-sm font-semibold">Performance-first engineering</h4>
+                                <p class="mt-1 text-xs leading-5 text-white/30">
+                                    Fast loading, smooth transitions and efficient architecture.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <span class="check">✓</span>
+                            <div>
+                                <h4 class="text-sm font-semibold">Responsive by default</h4>
+                                <p class="mt-1 text-xs leading-5 text-white/30">
+                                    Every experience is designed for every screen size.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <span class="check">✓</span>
+                            <div>
+                                <h4 class="text-sm font-semibold">Built to evolve</h4>
+                                <p class="mt-1 text-xs leading-5 text-white/30">
+                                    Flexible systems that can grow with your business.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal delay-2 relative">
+                    <div class="absolute -inset-10 rounded-full bg-violet-500/10 blur-3xl"></div>
+
+                    <div class="glass-heavy relative rounded-[30px] p-4 shadow-2xl">
+                        <div class="rounded-[22px] border border-white/10 bg-black/25 p-5">
+                            <div class="flex items-center justify-between border-b border-white/[0.06] pb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-violet-500/10">
+                                        <svg class="h-4 w-4 text-violet-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4 19h16M4 5h16M7 9h10M7 13h6"/>
+                                        </svg>
+                                    </div>
+
+                                    <div>
+                                        <div class="text-xs font-medium">System Architecture</div>
+                                        <div class="text-[9px] text-white/25">Realtime overview</div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-2">
+                                    <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400"></span>
+                                    <span class="text-[9px] text-white/30">Live</span>
+                                </div>
+                            </div>
+
+                            <div class="mt-5 grid grid-cols-2 gap-3">
+                                <div class="dashboard-card p-4">
+                                    <div class="text-[8px] uppercase tracking-widest text-white/25">Latency</div>
+                                    <div class="mt-2 text-xl font-semibold">42ms</div>
+                                    <div class="mt-2 text-[9px] text-emerald-300/60">Excellent</div>
+                                </div>
+
+                                <div class="dashboard-card p-4">
+                                    <div class="text-[8px] uppercase tracking-widest text-white/25">Uptime</div>
+                                    <div class="mt-2 text-xl font-semibold">99.99%</div>
+                                    <div class="mt-2 text-[9px] text-emerald-300/60">Stable</div>
+                                </div>
+                            </div>
+
+                            <div class="dashboard-card mt-3 p-4">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <div class="text-[8px] uppercase tracking-widest text-white/25">Request volume</div>
+                                        <div class="mt-1 text-lg font-semibold">24.8k / min</div>
+                                    </div>
+
+                                    <div class="text-[9px] text-violet-300/60">+16.4%</div>
+                                </div>
+
+                                <div class="mt-6 flex h-32 items-end gap-2">
+                                    <div class="bar h-[28%] flex-1"></div>
+                                    <div class="bar h-[43%] flex-1" style="animation-delay:.15s;"></div>
+                                    <div class="bar h-[35%] flex-1" style="animation-delay:.3s;"></div>
+                                    <div class="bar h-[58%] flex-1" style="animation-delay:.45s;"></div>
+                                    <div class="bar h-[48%] flex-1" style="animation-delay:.6s;"></div>
+                                    <div class="bar h-[74%] flex-1" style="animation-delay:.75s;"></div>
+                                    <div class="bar h-[65%] flex-1" style="animation-delay:.9s;"></div>
+                                    <div class="bar h-[82%] flex-1" style="animation-delay:1.05s;"></div>
+                                    <div class="bar h-[72%] flex-1" style="animation-delay:1.2s;"></div>
+                                    <div class="bar h-[96%] flex-1" style="animation-delay:1.35s;"></div>
+                                    <div class="bar h-[88%] flex-1" style="animation-delay:1.5s;"></div>
+                                </div>
+                            </div>
+
+                            <div class="mt-3 grid grid-cols-3 gap-3">
+                                <div class="dashboard-card p-3">
+                                    <div class="text-[8px] text-white/25">API</div>
+                                    <div class="mt-2 h-1.5 rounded-full bg-emerald-400/25"></div>
+                                </div>
+
+                                <div class="dashboard-card p-3">
+                                    <div class="text-[8px] text-white/25">Database</div>
+                                    <div class="mt-2 h-1.5 rounded-full bg-emerald-400/25"></div>
+                                </div>
+
+                                <div class="dashboard-card p-3">
+                                    <div class="text-[8px] text-white/25">CDN</div>
+                                    <div class="mt-2 h-1.5 rounded-full bg-emerald-400/25"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial -->
+        <section class="relative overflow-hidden border-y border-white/[0.06]">
+            <div class="absolute inset-0 bg-gradient-to-br from-violet-500/[0.035] via-transparent to-fuchsia-500/[0.025]"></div>
+
+            <div class="relative mx-auto max-w-5xl px-5 py-28 text-center sm:px-8">
+                <div class="reveal mx-auto mb-7 flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-violet-200">
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 11H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-6a6 6 0 0 0-6-6M19 11h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-6a6 6 0 0 0-6-6"/>
+                    </svg>
+                </div>
+
+                <blockquote class="reveal delay-1 font-display text-3xl font-medium leading-tight tracking-[-0.035em] sm:text-4xl md:text-5xl">
+                    “NOVA didn't just redesign our product.
+                    They completely changed how our customers
+                    <span class="gradient-text">experience our brand.</span>”
+                </blockquote>
+
+                <div class="reveal delay-2 mt-9 flex items-center justify-center gap-3">
+                    <div class="h-11 w-11 rounded-full bg-gradient-to-br from-violet-400/30 to-fuchsia-400/20 ring-1 ring-white/10"></div>
+
+                    <div class="text-left">
+                        <div class="text-sm font-semibold">Maya Reynolds</div>
+                        <div class="mt-0.5 text-xs text-white/30">Founder, Aether Labs</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing -->
+        <section id="pricing" class="mx-auto max-w-7xl px-5 py-28 sm:px-8">
+            <div class="reveal mx-auto max-w-2xl text-center">
+                <div class="mb-5 text-xs uppercase tracking-[0.3em] text-violet-300/60">
+                    Simple pricing
+                </div>
+
+                <h2 class="font-display text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">
+                    Choose your
+                    <span class="gradient-text">next move.</span>
+                </h2>
+
+                <p class="mx-auto mt-6 max-w-xl text-sm leading-7 text-white/35">
+                    Flexible engagement models for startups, growing teams
+                    and companies building something significant.
+                </p>
+            </div>
+
+            <div class="mt-16 grid gap-5 lg:grid-cols-3">
+                <div class="reveal rounded-[28px] border border-white/[0.07] bg-white/[0.02] p-7">
+                    <div class="text-xs uppercase tracking-[0.2em] text-white/30">Launch</div>
+
+                    <h3 class="mt-4 font-display text-2xl font-semibold">Essential</h3>
+
+                    <p class="mt-3 text-sm leading-6 text-white/35">
+                        For focused projects that need a strong digital foundation.
+                    </p>
+
+                    <div class="mt-7 text-4xl font-display font-semibold">
+                        $2.4k
+                        <span class="text-sm font-normal text-white/25">/ project</span>
+                    </div>
+
+                    <div class="my-7 line"></div>
+
+                    <div class="space-y-4">
+                        <div class="flex gap-3 text-sm text-white/55">
+                            <span class="check">✓</span>
+                            Landing page
+                        </div>
+
+                        <div class="flex gap-3 text-sm text-white/55">
+                            <span class="check">✓</span>
+                            Responsive design
+                        </div>
+
+                        <div class="flex gap-3 text-sm text-white/55">
+                            <span class="check">✓</span>
+                            Motion system
+                        </div>
+
+                        <div class="flex gap-3 text-sm text-white/55">
+                            <span class="check">✓</span>
+                            Basic analytics
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="mt-9 block rounded-full border border-white/10 bg-white/[0.03] px-5 py-3 text-center text-sm font-semibold text-white/70 transition hover:bg-white/[0.07] hover:text-white">
+                        Get started
+                    </a>
+                </div>
+
+                <div class="pricing-popular reveal delay-1 relative rounded-[28px] border border-violet-300/20 bg-gradient-to-b from-violet-500/[0.09] to-white/[0.02] p-7">
+                    <div class="absolute right-6 top-6 rounded-full border border-violet-300/15 bg-violet-400/10 px-3 py-1 text-[9px] uppercase tracking-[0.2em] text-violet-200">
+                        Popular
+                    </div>
+
+                    <div class="text-xs uppercase tracking-[0.2em] text-violet-200/55">Scale</div>
+
+                    <h3 class="mt-4 font-display text-2xl font-semibold">Signature</h3>
+
+                    <p class="mt-3 max-w-sm text-sm leading-6 text-white/35">
+                        For ambitious products that need design and engineering together.
+                    </p>
+
+                    <div class="mt-7 text-4xl font-display font-semibold">
+                        $6.8k
+                        <span class="text-sm font-normal text-white/25">/ project</span>
+                    </div>
+
+                    <div class="my-7 line"></div>
+
+                    <div class="space-y-4">
+                        <div class="flex gap-3 text-sm text-white/65">
+                            <span class="check">✓</span>
+                            Product strategy
+                        </div>
+
+                        <div class="flex gap-3 text-sm text-white/65">
+                            <span class="check">✓</span>
+                            Full UI/UX system
+                        </div>
+
+                        <div class="flex gap-3 text-sm text-white/65">
+                            <span class="check">✓</span>
+                            Frontend development
+                        </div>
+
+                        <div class="flex gap-3 text-sm text-white/65">
+                            <span class="check">✓</span>
+                            Advanced interactions
+                        </div>
+
+                        <div class="flex gap-3 text-sm text-white/65">
+                            <span class="check">✓</span>
+                            Analytics dashboard
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="btn-primary mt-9 block rounded-full px-5 py-3 text-center text-sm font-semibold">
+                        Start a project
+                    </a>
+                </div>
+
+                <div class="reveal delay-2 rounded-[28px] border border-white/[0.07] bg-white/[0.02] p-7">
+                    <div class="text-xs uppercase tracking-[0.2em] text-white/30">Partner</div>
+
+                    <h3 class="mt-4 font-display text-2xl font-semibold">Continuous</h3>
+
+                    <p class="mt-3 text-sm leading-6 text-white/35">
+                        An embedded digital team for continuous product evolution.
+                    </p>
+
+                    <div class="mt-7 text-4xl font-display font-semibold">
+                        Custom
+                    </div>
+
+                    <div class="my-7 line"></div>
+
+                    <div class="space-y-4">
+                        <div class="flex gap-3 text-sm text-white/55">
+                            <span class="check">✓</span>
+                            Dedicated team
+                        </div>
+
+                        <div class="flex gap-3 text-sm text-white/55">
+                            <span class="check">✓</span>
+                            Product roadmap
+                        </div>
+
+                        <div class="flex gap-3 text-sm text-white/55">
+                            <span class="check">✓</span>
+                            Continuous optimization
+                        </div>
+
+                        <div class="flex gap-3 text-sm text-white/55">
+                            <span class="check">✓</span>
+                            Priority support
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="mt-9 block rounded-full border border-white/10 bg-white/[0.03] px-5 py-3 text-center text-sm font-semibold text-white/70 transition hover:bg-white/[0.07] hover:text-white">
+                        Let's talk
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="mx-auto max-w-4xl px-5 py-28 sm:px-8">
+            <div class="reveal text-center">
+                <div class="mb-5 text-xs uppercase tracking-[0.3em] text-violet-300/60">
+                    FAQ
+                </div>
+
+                <h2 class="font-display text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">
+                    Questions,
+                    <span class="gradient-text">answered.</span>
+                </h2>
+            </div>
+
+            <div class="mt-14 space-y-3">
+                <div class="faq-item reveal rounded-2xl border border-white/[0.07] bg-white/[0.02]">
+                    <button class="faq-question flex w-full items-center justify-between gap-6 p-5 text-left">
+                        <span class="font-display text-base font-semibold">
+                            How long does a typical project take?
+                        </span>
+
+                        <span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-white/50">
+                            +
+                        </span>
+                    </button>
+
+                    <div class="faq-answer px-5">
+                        <p class="pb-5 text-sm leading-7 text-white/35">
+                            Smaller projects can move from discovery to launch
+                            within a few weeks. Larger product engagements are
+                            planned in focused phases based on scope and complexity.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal delay-1 rounded-2xl border border-white/[0.07] bg-white/[0.02]">
+                    <button class="faq-question flex w-full items-center justify-between gap-6 p-5 text-left">
+                        <span class="font-display text-base font-semibold">
+                            Can you work with our existing development team?
+                        </span>
+
+                        <span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-white/50">
+                            +
+                        </span>
+                    </button>
+
+                    <div class="faq-answer px-5">
+                        <p class="pb-5 text-sm leading-7 text-white/35">
+                            Absolutely. We regularly collaborate with internal
+                            engineering, marketing and product teams. We can
+                            own the complete experience or plug into your existing workflow.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal delay-2 rounded-2xl border border-white/[0.07] bg-white/[0.02]">
+                    <button class="faq-question flex w-full items-center justify-between gap-6 p-5 text-left">
+                        <span class="font-display text-base font-semibold">
+                            Do you only build websites?
+                        </span>
+
+                        <span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-white/50">
+                            +
+                        </span>
+                    </button>
+
+                    <div class="faq-answer px-5">
+                        <p class="pb-5 text-sm leading-7 text-white/35">
+                            No. We work across websites, SaaS platforms,
+                            mobile experiences, dashboards, design systems,
+                            AI products, e-commerce and digital brands.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal delay-3 rounded-2xl border border-white/[0.07] bg-white/[0.02]">
+                    <button class="faq-question flex w-full items-center justify-between gap-6 p-5 text-left">
+                        <span class="font-display text-base font-semibold">
+                            Can you redesign an existing product?
+                        </span>
+
+                        <span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-white/50">
+                            +
+                        </span>
+                    </button>
+
+                    <div class="faq-answer px-5">
+                        <p class="pb-5 text-sm leading-7 text-white/35">
+                            Yes. We can audit the existing experience, identify
+                            friction points and build a modern design system
+                            without unnecessarily replacing what already works.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal delay-4 rounded-2xl border border-white/[0.07] bg-white/[0.02]">
+                    <button class="faq-question flex w-full items-center justify-between gap-6 p-5 text-left">
+                        <span class="font-display text-base font-semibold">
+                            What happens after launch?
+                        </span>
+
+                        <span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-white/50">
+                            +
+                        </span>
+                    </button>
+
+                    <div class="faq-answer px-5">
+                        <p class="pb-5 text-sm leading-7 text-white/35">
+                            We can stay involved through analytics, optimization,
+                            feature development and ongoing design support,
+                            depending on the engagement model.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section id="contact" class="relative mx-auto max-w-7xl px-5 py-28 sm:px-8">
+            <div class="absolute inset-x-10 top-1/2 h-64 -translate-y-1/2 rounded-full bg-violet-600/[0.07] blur-3xl"></div>
+
+            <div class="gradient-border glass-heavy relative overflow-hidden rounded-[35px] p-8 sm:p-14 md:p-20">
+                <div class="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-violet-500/10 blur-3xl"></div>
+                <div class="absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-fuchsia-500/10 blur-3xl"></div>
+
+                <div class="relative mx-auto max-w-3xl text-center">
+                    <div class="reveal mx-auto mb-6 flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.035] px-3 py-1.5">
+                        <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-violet-300"></span>
+                        <span class="text-[9px] uppercase tracking-[0.25em] text-white/40">
+                            Have an idea?
+                        </span>
+                    </div>
+
+                    <h2 class="reveal delay-1 font-display text-4xl font-semibold leading-tight tracking-[-0.045em] sm:text-6xl">
+                        Let's make something
+                        <span class="gradient-text">extraordinary.</span>
+                    </h2>
+
+                    <p class="reveal delay-2 mx-auto mt-6 max-w-xl text-sm leading-7 text-white/35">
+                        Tell us what you're building, where you're going
+                        and what you want the world to feel.
+                    </p>
+
+                    <div class="reveal delay-3 mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                        <a href="mailto:hello@nova.studio" class="btn-primary group inline-flex items-center justify-center gap-3 rounded-full px-7 py-3.5 text-sm font-semibold">
+                            hello@nova.studio
+                            <svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M5 12h14m-5-5 5 5-5 5"/>
+                            </svg>
+                        </a>
+
+                        <button id="copyEmail" class="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-7 py-3.5 text-sm font-medium text-white/60 transition hover:bg-white/[0.07] hover:text-white">
+                            Copy email
+                        </button>
+                    </div>
+
+                    <div id="copyMessage" class="mt-4 h-5 text-xs text-violet-300/70"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/[0.06]">
+        <div class="mx-auto max-w-7xl px-5 py-12 sm:px-8">
+            <div class="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+                <div>
+                    <a href="#home" class="flex items-center gap-3">
+                        <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-white/[0.05] ring-1 ring-white/10">
+                            <span class="font-display text-sm font-bold">N</span>
+                        </div>
+
+                        <div class="font-display text-sm font-bold tracking-[0.18em]">NOVA</div>
+                    </a>
+
+                    <p class="mt-5 max-w-xs text-xs leading-6 text-white/30">
+                        Independent digital studio creating products,
+                        brands and experiences for the next generation.
+                    </p>
+
+                    <div class="mt-6 flex gap-2">
+                        <a href="#" class="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white/35 transition hover:bg-white/[0.05] hover:text-white">
+                            X
+                        </a>
+
+                        <a href="#" class="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white/35 transition hover:bg-white/[0.05] hover:text-white">
+                            in
+                        </a>
+
+                        <a href="#" class="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white/35 transition hover:bg-white/[0.05] hover:text-white">
+                            Dr
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="text-[9px] uppercase tracking-[0.25em] text-white/25">Explore</div>
+
+                    <div class="mt-5 flex flex-col gap-3">
+                        <a href="#features" class="text-xs text-white/40 transition hover:text-white">Features</a>
+                        <a href="#showcase" class="text-xs text-white/40 transition hover:text-white">Work</a>
+                        <a href="#process" class="text-xs text-white/40 transition hover:text-white">Process</a>
+                        <a href="#pricing" class="text-xs text-white/40 transition hover:text-white">Pricing</a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="text-[9px] uppercase tracking-[0.25em] text-white/25">Studio</div>
+
+                    <div class="mt-5 flex flex-col gap-3">
+                        <a href="#" class="text-xs text-white/40 transition hover:text-white">About</a>
+                        <a href="#" class="text-xs text-white/40 transition hover:text-white">Journal</a>
+                        <a href="#" class="text-xs text-white/40 transition hover:text-white">Careers</a>
+                        <a href="#" class="text-xs text-white/40 transition hover:text-white">Contact</a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="text-[9px] uppercase tracking-[0.25em] text-white/25">Legal</div>
+
+                    <div class="mt-5 flex flex-col gap-3">
+                        <a href="#" class="text-xs text-white/40 transition hover:text-white">Privacy</a>
+                        <a href="#" class="text-xs text-white/40 transition hover:text-white">Terms</a>
+                        <a href="#" class="text-xs text-white/40 transition hover:text-white">Cookies</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="my-10 line"></div>
+
+            <div class="flex flex-col justify-between gap-4 text-[10px] text-white/25 sm:flex-row">
+                <div>
+                    © 2026 NOVA Studio. All rights reserved.
+                </div>
+
+                <div class="flex items-center gap-2">
+                    Crafted with
+                    <span class="text-violet-300/70">✦</span>
+                    for the future.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        const menuButton = document.getElementById('menuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const cursorGlow = document.getElementById('cursorGlow');
+        const particlesContainer = document.getElementById('particles');
+
+        /*
+         * Navigation scroll effect
+         */
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 30) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        });
+
+        /*
+         * Mobile navigation
+         */
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+
+            const icon = document.getElementById('menuIcon');
+
+            if (mobileMenu.classList.contains('open')) {
+                icon.innerHTML = `
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.7"
+                        d="M6 6l12 12M18 6 6 18"
+                    />
+                `;
+            } else {
+                icon.innerHTML = `
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.7"
+                        d="M4 6h16M4 12h16M4 18h16"
+                    />
+                `;
+            }
+        });
+
+        /*
+         * Close mobile menu after navigation
+         */
+        document.querySelectorAll('#mobileMenu a').forEach((link) => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+
+                document.getElementById('menuIcon').innerHTML = `
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.7"
+                        d="M4 6h16M4 12h16M4 18h16"
+                    />
+                `;
+            });
+        });
+
+        /*
+         * Cursor glow
+         */
+        document.addEventListener('mousemove', (event) => {
+            if (!cursorGlow) {
+                return;
+            }
+
+            cursorGlow.style.left = `${event.clientX}px`;
+            cursorGlow.style.top = `${event.clientY}px`;
+        });
+
+        /*
+         * Generate ambient particles
+         */
+        const particleCount = window.innerWidth < 768 ? 35 : 70;
+
+        for (let i = 0; i < particleCount; i += 1) {
+            const particle = document.createElement('span');
+
+            particle.className = 'particle';
+
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.top = `${Math.random() * 100}%`;
+            particle.style.opacity = `${0.15 + Math.random() * 0.65}`;
+            particle.style.transform = `scale(${0.4 + Math.random() * 1.2})`;
+            particle.style.animationDuration = `${3 + Math.random() * 7}s`;
+            particle.style.animationDelay = `${Math.random() * -8}s`;
+
+            particlesContainer.appendChild(particle);
+        }
+
+        /*
+         * Reveal animations
+         */
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+        revealElements.forEach((element) => {
+            revealObserver.observe(element);
+        });
+
+        /*
+         * Animated counters
+         */
+        const counters = document.querySelectorAll('.stat-number');
+
+        const counterObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+
+                    const counter = entry.target;
+                    const target = Number(counter.dataset.target);
+                    const duration = 1800;
+                    const startTime = performance.now();
+
+                    const updateCounter = (currentTime) => {
+                        const progress = Math.min(
+                            (currentTime - startTime) / duration,
+                            1
+                        );
+
+                        const easedProgress = 1 - Math.pow(1 - progress, 3);
+                        const value = Math.floor(target * easedProgress);
+
+                        counter.textContent = value;
+
+                        if (progress < 1) {
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.textContent = target;
+                        }
+                    };
+
+                    requestAnimationFrame(updateCounter);
+                    counterObserver.unobserve(counter);
+                });
+            },
+            {
+                threshold: 0.7
+            }
+        );
+
+        counters.forEach((counter) => {
+            counterObserver.observe(counter);
+        });
+
+        /*
+         * FAQ accordion
+         */
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach((item) => {
+            const button = item.querySelector('.faq-question');
+
+            button.addEventListener('click', () => {
+                const wasActive = item.classList.contains('active');
+
+                faqItems.forEach((faq) => {
+                    faq.classList.remove('active');
+                });
+
+                if (!wasActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        /*
+         * Copy email
+         */
+        const copyEmailButton = document.getElementById('copyEmail');
+        const copyMessage = document.getElementById('copyMessage');
+
+        copyEmailButton.addEventListener('click', async () => {
+            const email = 'hello@nova.studio';
+
+            try {
+                await navigator.clipboard.writeText(email);
+
+                copyMessage.textContent = 'Email copied to clipboard.';
+
+                setTimeout(() => {
+                    copyMessage.textContent = '';
+                }, 2500);
+            } catch (error) {
+                copyMessage.textContent = email;
+
+                setTimeout(() => {
+                    copyMessage.textContent = '';
+                }, 2500);
+            }
+        });
+
+        /*
+         * Subtle 3D interaction for cards
+         */
+        const interactiveCards = document.querySelectorAll('.floating-card');
+
+        interactiveCards.forEach((card) => {
+            card.addEventListener('mousemove', (event) => {
+                const rect = card.getBoundingClientRect();
+
+                const x = event.clientX - rect.left;
+                const y = event.clientY - rect.top;
+
+                const rotateX = ((y / rect.height) - 0.5) * -5;
+                const rotateY = ((x / rect.width) - 0.5) * 5;
+
+                card.style.transform = `
+                    perspective(800px)
+                    translateY(-8px)
+                    rotateX(${rotateX}deg)
+                    rotateY(${rotateY}deg)
+                `;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+
+        /*
+         * Hero visual parallax
+         */
+        const heroVisual = document.querySelector('.animate-float');
+
+        window.addEventListener('mousemove', (event) => {
+            if (!heroVisual || window.innerWidth < 1024) {
+                return;
+            }
+
+            const x = (event.clientX / window.innerWidth - 0.5) * 10;
+            const y = (event.clientY / window.innerHeight - 0.5) * 10;
+
+            heroVisual.style.transform = `
+                translate3d(${x}px, ${y}px, 0)
+            `;
+        });
+
+        /*
+         * Prevent broken anchor transitions
+         */
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+            anchor.addEventListener('click', (event) => {
+                const targetId = anchor.getAttribute('href');
+
+                if (!targetId || targetId === '#') {
+                    return;
+                }
+
+                const target = document.querySelector(targetId);
+
+                if (!target) {
+                    return;
+                }
+
+                event.preventDefault();
+
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        /*
+         * Initial navigation state
+         */
+        if (window.scrollY > 30) {
+            navbar.classList.add('nav-scrolled');
+        }
+
+        /*
+         * Page load reveal
+         */
+        window.addEventListener('load', () => {
+            document.querySelectorAll('section:first-of-type .reveal').forEach((element) => {
+                element.classList.add('visible');
+            });
+        });
+    </script>
+</body>
+</html>
+
